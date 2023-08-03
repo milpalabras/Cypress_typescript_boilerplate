@@ -1,6 +1,7 @@
 import 'cypress-file-upload'
 import '@testing-library/cypress/add-commands'
 import '@4tw/cypress-drag-drop'
+import { generateRandomWords } from '../../cypress/utils'
 /// <reference types="cypress" />
 // ***********************************************
 // This example commands.js shows you how to
@@ -36,6 +37,13 @@ declare global {
        * @example cy.dataCy('greeting')
        */
       dataCy(value: string): Chainable<JQuery<HTMLElement>>
+
+      /**
+       * Custom command to type ramdon words in a input field.
+       * @param count: number of words to be typed
+       * @example cy.get('input').typeRandomWords(5)
+       */
+      typeRandomWords(count?: number, options?: Partial<TypeOptions>): Chainable<JQuery<HTMLElement>>
     }
   }
 }
@@ -43,3 +51,11 @@ declare global {
 Cypress.Commands.add('dataCy', value => {
   return cy.get(`[data-cy=${value}]`)
 })
+
+Cypress.Commands.add(
+  'typeRandomWords',
+  { prevSubject: 'element' },
+  (subject /* :JQuery<HTMLElement> */, count = 3, options?) => {
+    return cy.wrap(subject).type(generateRandomWords(count), options)
+  }
+)
