@@ -6,7 +6,8 @@
   "scripts": {
     "prepare": "husky install",
     "cy:run": "cypress run",
-    "cy:open": "cypress open"
+    "cy:open": "cypress open",
+    "cy:open:chrome": "cypress open --e2e --browser chrome"
   },
   "repository": {
     "type": "git",
@@ -25,9 +26,20 @@
   },
   "homepage": "https://github.com/milpalabras/Cypress_typescript_boilerplate#readme",
   "devDependencies": {
+    "@4tw/cypress-drag-drop": "^2.2.4",
+    "@testing-library/cypress": "^9.0.0",
+    "@types/node": "^20.4.6",
+    "cy-verify-downloads": "^0.1.15",
     "cypress": "^12.17.3",
+    "cypress-file-upload": "^5.0.8",
+    "cypress-mochawesome-reporter": "^3.5.1",
+    "cypress-multi-reporters": "^1.6.3",
+    "cypress-real-events": "^1.10.0",
     "husky": "^8.0.3",
+    "junit-report-merger": "^6.0.2",
     "lint-staged": "^13.2.3",
+    "mocha-junit-reporter": "^2.2.1",
+    "npm-check-updates": "^16.10.17",
     "prettier": "^3.0.0",
     "typescript": "^5.1.6"
   },
